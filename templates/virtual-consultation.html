@@ -1,0 +1,45 @@
+{% extends 'startpage.html' %}
+{% load static %}
+{% block body %}
+      
+    
+    <!-- Breadcrumbs -->
+		<div class="breadcrumbs overlay">
+			<div class="container">
+				<div class="bread-inner">
+					<div class="row">
+						<div class="col-12">
+							<h2>Virtual Consultation</h2>
+							<ul class="bread-list">
+								<li><a href="{% url 'index' %}">Home</a></li>
+								<li><i class="icofont-simple-right"></i></li>
+								<li class="active">Virtual Consultation</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Breadcrumbs -->
+    
+       <div class="container my-5">
+        <div class="row align-items-center">
+            <!-- Text Section -->
+            <div class="col-md-6 text-center text-md-start">
+                <h1 class="mb-4">Virtual Consultation</h1>
+                <p class="lead mb-4">
+                    Connect with our experienced dentists from the comfort of your home. 
+                    Discuss your dental concerns and get professional advice through a secure virtual call.
+                </p>
+                <a href="https://app.zoom.us/wc/83239090120/join?fromPWA=1&pwd=YaawPepsmAOobdmSbyJCoBERVVgOkd.1&_x_zm_rtaid=_Oa8KB_xRV-ZqoMIWontRg.1730188963028.cd1920d6b9233fac698fda31068f9421&_x_zm_rhtaid=931" class="btn btn-primary btn-lg">Join a Virtual Call Now</a>
+            </div>
+            <!-- Image Section -->
+            <div class="col-md-6">
+                <img src="{% static 'img/virtual.jpg' %}" alt="Virtual Consultation" class="img-fluid rounded shadow">
+            </div>
+        </div>
+    </div>
+    
+    
+    
+{% endblock %}

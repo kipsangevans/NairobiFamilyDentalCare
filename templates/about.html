@@ -1,0 +1,51 @@
+{% extends 'startpage.html' %}
+{% load static %}
+{% block body %}
+    
+     <!-- Breadcrumbs -->
+		<div class="breadcrumbs overlay">
+			<div class="container">
+				<div class="bread-inner">
+					<div class="row">
+						<div class="col-12">
+							<h2>About Us</h2>
+							<ul class="bread-list">
+								<li><a href="{% url 'index' %}">Home</a></li>
+								<li><i class="icofont-simple-right"></i></li>
+								<li class="active">About Us</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- End Breadcrumbs -->
+    
+    
+  <div class="m-10">
+ 
+    <div class="image" style="position: relative; text-align: center;">
+        <img src="{% static 'img/about.jpg' %}" alt="" style="width: 100%; height: 80vh;" />
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: #ffffff; font-size: 18px; background-color: #1a76d0; opacity: 0.8; padding: 40px; text-align: center;border-radius: 10px; ">
+       <div class="text" style="opacity: 1">
+              <P>
+           <h1> Welcome to Nairobi Family Dental Care, where your smile is our priority!</h1>
+
+Located in the heart of Nairobi, our clinic is dedicated to providing exceptional dental care for individuals and families alike. With a team of highly skilled dentists and state-of-the-art technology, we strive to ensure every patient enjoys a comfortable, stress-free experience while achieving optimal oral health.
+            <br>
+            <h1>Our Mission</h1>
+            To deliver high-quality, affordable, and compassionate dental services tailored to meet the unique needs of every patient. We aim to promote healthy, confident smiles that last a lifetime.
+            <h1>Our Commitment to You</h1>
+At Nairobi Family Dental Care, we believe that a healthy smile is essential to your overall well-being. We are committed to making every visit pleasant, ensuring that our patients feel valued and cared for at every step of their dental journey.
+            
+          </P>
+       </div>
+        </div>
+    </div>
+</div>
+
+    <div class="content">
+        
+    </div>
+    </div>
+{% endblock %}

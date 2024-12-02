@@ -1,0 +1,122 @@
+{% extends 'startpage.html' %}
+{% load static %}
+
+{% block body %}
+
+
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs overlay">
+        <div class="container">
+            <div class="bread-inner">
+                <div class="row">
+                    <div class="col-12">
+                        <h2>Book Appointment</h2>
+                        <ul class="bread-list">
+                            <li><a href="{% url 'index' %}">Home</a></li>
+                            <li><i class="icofont-simple-right"></i></li>
+                            <li class="active">Book Appointment</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+    
+    
+    
+          <!-- Success Message Box -->
+    {% if success_message %}
+        <div class="alert alert-success text-center" role="alert" id="success-message" >
+            {{ success_message }}
+        </div>
+    {% endif %}
+
+
+    <!-- Start Appointment -->
+    <section class="appointment">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2>We Are Always Ready to Help You. Book An Appointment</h2>
+                        <img src="{% static 'img/section-img.png' %}" alt="#">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-12">
+                    <form class="form" method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                    <input name="name" type="text" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                    <input name="email" type="email" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                    <input name="phone" type="text" placeholder="Phone">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+
+                                    <select id="doctor" name="doctor" class="form-control wide">
+                                        <option value="" disabled selected>Select a Doctor</option>
+                                        <option value="Dr. Akther Hossain">Dr. Akther Hossain</option>
+                                        <option value="Dr. Dery Alex">Dr. Dery Alex</option>
+                                        <option value="Dr. Jovis Karon">Dr. Jovis Karon</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                    <input type="date"  name="date" placeholder="Date" id="datepicker">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                    <!-- Time Input -->
+                                    <input type="time" name="time" placeholder="Time">
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-12">
+                                <div class="form-group">
+                                    <textarea name="message" placeholder="Write Your Message Here....."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5 col-md-4 col-12">
+                                <div class="form-group">
+                                    <div class="button">
+                                        <button type="submit" class="btn">Book An Appointment</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-7 col-md-8 col-12">
+                                <p>( We will confirm via a email )</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="appointment-image">
+                        <img src="{% static 'img/contact-img.png' %}" alt="#">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Appointment -->
+
+
+{% endblock %}

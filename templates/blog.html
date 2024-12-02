@@ -1,0 +1,183 @@
+{% extends 'startpage.html' %}
+{% load static %}
+{% block body %}
+    
+    
+    
+    	<!-- Breadcrumbs -->
+		<div class="breadcrumbs overlay">
+			<div class="container">
+				<div class="bread-inner">
+					<div class="row">
+						<div class="col-12">
+							<h2>Blog Single</h2>
+							<ul class="bread-list">
+								<li><a href="{% url 'index' %}">Home</a></li>
+								<li><i class="icofont-simple-right"></i></li>
+								<li class="active">Blogs</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    
+    
+    <!-- Single News -->
+<section class="news-single section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-12">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="single-main">
+                            <!-- News Head -->
+                            <div class="news-head">
+                                <img src="{% static 'img/blog-1.jpg' %}" alt="Nairobi Family Dental Care">
+                            </div>
+                            <!-- News Title -->
+                            <h1 class="news-title"><a href="news-single.html">Nairobi Family Dental Care: Redefining Oral Health in Kenya</a></h1>
+                            <!-- Meta -->
+                            <div class="meta">
+                                <div class="meta-left">
+                                    <span class="author"><a href="#"><img src="{% static 'img/dr-Linda Kemunto.jpg' %}" alt="Dr. Linda Kemunto">Dr.Linda Kemunto</a></span>
+                                    <span class="date"><i class="fa fa-clock-o"></i>29 Nov 2024</span>
+                                </div>
+                                <div class="meta-right">
+                                    <span class="comments"><a href="#"><i class="fa fa-comments"></i>12 Comments</a></span>
+                                    <span class="views"><i class="fa fa-eye"></i>5.2K Views</span>
+                                </div>
+                            </div>
+                            <!-- News Text -->
+                            <div class="news-text">
+                                <p>At Nairobi Family Dental Care, we prioritize delivering comprehensive and compassionate dental services to families across Nairobi. From routine check-ups to advanced cosmetic procedures, our team is dedicated to improving your oral health and confidence.</p>
+                                <p>Our state-of-the-art clinic is equipped with the latest dental technology to ensure efficient, pain-free treatments. Whether you're seeking preventive care, orthodontics, or restorative dentistry, we have a solution tailored just for you.</p>
+                                <div class="image-gallery">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <div class="single-image">
+                                                <img src="{% static 'img/blog-2.jpg' %}" alt="Dental Procedure">
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <div class="single-image">
+                                                <img src="{% static 'img/happy-smile.jpg' %}" alt="Happy Smile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>Our mission extends beyond just treatment — we aim to educate our patients on oral hygiene practices to maintain long-term dental health. Join our community and experience the difference of personalized dental care.</p>
+                                <blockquote class="overlay">
+                                    <p>"A healthy smile is the key to a healthy life. At Nairobi Family Dental Care, we’re here to make that smile shine brighter."</p>					
+                                </blockquote>
+                                <p>Visit us today and take the first step toward a lifetime of beautiful, healthy smiles. Our team is ready to welcome you to an environment that feels like home.</p>
+                            </div>
+                            <div class="blog-bottom">
+                                <!-- Social Share -->
+                                <ul class="social-share">
+                                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i><span>Facebook</span></a></li>
+                                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i><span>Twitter</span></a></li>
+                                    <li class="linkedin"><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    <li class="pinterest"><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                </ul>
+                                <!-- Next Prev -->
+                                <ul class="prev-next">
+                                    <li class="prev"><a href="#"><i class="fa fa-angle-double-left"></i></a></li>
+                                    <li class="next"><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                                </ul>
+                                <!--/ End Next Prev -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="blog-comments">
+                            <h2>All Comments</h2>
+                            <div class="comments-body">
+                                <!-- Single Comments -->
+                                <div class="single-comments">
+                                    <div class="main">
+                                        <div class="head">
+                                            <img src="{% static 'img/mwangi-comments.jpg' %}" alt="#"/>
+                                        </div>
+                                        <div class="body">
+                                            <h4>John Mwangi</h4>
+                                            <div class="comment-meta"><span class="meta"><i class="fa fa-calendar"></i>Nov 28, 2024</span><span class="meta"><i class="fa fa-clock-o"></i>10:45 AM</span></div>
+                                            <p>Thank you for such exceptional care! The team at Nairobi Family Dental Care is truly the best.</p>
+                                           <a href="#leave-comment"><i class="fa fa-reply"></i>Write a comment</a>
+                                        </div>
+                                    </div>
+                                </div>		
+                                <!--/ End Single Comments -->											
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12" id="leave-comment">
+                        <div class="comments-form">
+                            <h2>Leave Comments</h2>
+                            <!-- Contact Form -->
+                            <form class="form" method="post" action="mail/mail.php">
+                                <div class="row">
+                                    <div class="col-lg-4 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <i class="fa fa-user"></i>
+                                            <input type="text" name="first-name" placeholder="First name" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <i class="fa fa-envelope"></i>
+                                            <input type="text" name="last-name" placeholder="Last name" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <i class="fa fa-envelope"></i>
+                                            <input type="email" name="email" placeholder="Your Email" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group message">
+                                            <i class="fa fa-pencil"></i>
+                                            <textarea name="message" rows="7" placeholder="Type Your Message Here" ></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group button">	
+                                            <button type="submit" class="btn primary"><i class="fa fa-send"></i>Submit Comment</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!--/ End Contact Form -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-12">
+                <div class="main-sidebar">
+                    <!-- Single Widget -->
+                    <div class="single-widget search">
+                        <div class="form">
+                            <input type="email" placeholder="Search Here...">
+                            <a class="button" href="#"><i class="fa fa-search"></i></a>
+                        </div>
+                    </div>
+                    <!--/ End Single Widget -->
+                    <div class="single-widget category">
+                        <h3 class="title">Blog Categories</h3>
+                        <ul class="categor-list">
+                            <li><a href="#">Dental Tips</a></li>
+                            <li><a href="#">Oral Hygiene</a></li>
+                            <li><a href="#">Children’s Dental Care</a></li>
+                            <li><a href="#">Orthodontics</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/ End Single News -->
+
+    
+{% endblock %}
