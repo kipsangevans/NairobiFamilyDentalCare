@@ -13,5 +13,9 @@ urlpatterns = [
     path('blog/', views.blog, name='blog'),
     path('appointment/', views.appointment, name='appointment'),
     path('virtual-consultation/', views.virtual, name='virtual-consultation'),
-    path('our team/', views.ourteam, name='our-team'),
+    #
+    # upload image
+    path('uploadimage/', views.upload_image, name='upload'),
+    path('our team/', views.our_team, name='image'),
+    path('imagedelete/<int:id>', views.imagedelete),
 ]

@@ -1,9 +1,10 @@
 from urllib import request
 
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .models import  Appointment,Contact
 
+from .forms import ImageUploadForm
+from .models import Appointment, Contact, ImageModel
 
 
 # Create your views here.
@@ -56,4 +57,23 @@ def virtual(request):
 
 def ourteam(request):
     return render(request,'our-team.html')
+
+def upload_image(request):
+    if request.method == 'POST':
+        form = ImageUploadForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('/our team')
+    else:
+        form = ImageUploadForm()
+    return render(request, 'upload_image.html', {'form': form})
+
+def our_team(request):
+    images = ImageModel.objects.all()
+    return render(request, 'our-team.html', {'images': images})
+
+def imagedelete(request, id):
+    image = ImageModel.objects.get(id=id)
+    image.delete()
+    return redirect('/showimage')
 

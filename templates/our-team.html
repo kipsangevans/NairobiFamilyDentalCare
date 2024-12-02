@@ -5,26 +5,41 @@
 
 
        <!----Show image--->
-      <h2 class="text-center">Our team</h2>
+      <h2 class="text-center">Our Team</h2>
+      <div class="container">
+          <strong>About Our Team </strong>
+At Nairobi Family Dental Care, our team is a group of dedicated professionals who share a passion for excellence in dental health. We are committed to providing personalized care and ensuring every visit is a comfortable and positive experience. Our diverse expertise and 
+          patient-centered approach make us your trusted partners in achieving and maintaining a healthy, beautiful smile.
+      </div>
+    <br><br>
 
        <div class="container">
           <div style="display: flex;
           justify-content:space-between;
           flex-wrap: wrap">
                {% for image in images %}
-              <div class="col mb-2">
-                  <img src="{{ image.image.url }}" alt="Uploaded Image" style="width: 300px;height:300px"> <br>
-                  <p><strong>Title :</strong>{{ image.title }}</p>
-                  <p><strong>Price :</strong>{{ image.price }}</p>
+              <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item position-relative rounded overflow-hidden">
+                        <div class="overflow-hidden">
+                            <img class="img-fluid" src="{{ image.image.url }}" alt="" style="border-radius: 10px" >
+                        </div>
+                        <div class="team-text bg-light text-center p-4">
+                            <h5>{{ image.title }}</h5>
+                            <p class="text-primary">Department</p>
+                            <div class="team-social text-center">
+                                <a class="btn btn-square" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-square" href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                  <a href="/imagedelete/{{ image.id }}" class="btn btn-outline-danger">DELETE</a>
-                  <a href="" class="btn btn-outline-success">PAY</a><br>
-              </div>
            {% endfor %}
           </div>
 
        </div>
-
+   
 
 
 {% endblock %}
