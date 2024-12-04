@@ -1,0 +1,95 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+
+ <div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Appointments List</h4>
+        <div class="table-responsive" style="max-height: 300px; overflow-y: auto; border: 1px solid #ddd;"> <!-- Inline CSS -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Track No</th>
+                        <th>Name</th>
+                        <th>Phone No</th>
+                        <th>Status</th>
+                        <th>Date and Time</th>
+                        <th>Doctor</th>
+                        <th>Message</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in appointments %}
+                        <tr>
+                        <td>{{ x.id }}</td>
+                            <td>{{ x.name }}</td>
+                            <td>{{ x.phone }}</td>
+                            <td>
+                                <label class="badge badge-gradient-success">NEW</label>
+                            </td>
+                            <td>{{ x.appointment_time|date:"Y-m-d H:i" }}</td>
+                            <td>{{ x.doctor }}</td>
+                            <td>{{ x.message }}</td>
+                            <td>
+                                <a href="" class="btn btn-gradient-dark btn-sm">EDIT</a>
+                                <a href="" class="btn btn-gradient-success btn-sm">PAY</a>
+                                <a href="/confirm/{{ x.id }}" class="btn btn-gradient-success btn-sm">Confirm</a>
+
+                                <a href="/deleteAppointment/{{ x.id }}" class="btn btn-danger btn-sm">DELETE</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div><br><br>
+
+    
+     <div class="card">
+    <div class="card-body">
+        <h4 class="card-title"> Confirmed Appointments </h4>
+        <div class="table-responsive" style="max-height: 300px; overflow-y: auto; border: 1px solid #ddd;"> <!-- Inline CSS -->
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Track No</th>
+                        <th>Name</th>
+                        <th>Phone No</th>
+                        <th>Status</th>
+                        <th>Date and Time</th>
+                        <th>Doctor</th>
+                        <th>Message</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for x in confirmed_appointments %}
+                        <tr>
+                        <td>{{ x.id }}</td>
+                            <td>{{ x.name }}</td>
+                            <td>{{ x.phone }}</td>
+                            <td>
+                                <label class="badge badge-gradient-success">NEW</label>
+                            </td>
+                            <td>{{ x.appointment_time|date:"Y-m-d H:i" }}</td>
+                            <td>{{ x.doctor }}</td>
+                            <td>{{ x.message }}</td>
+                            <td>
+                                <a href="" class="btn btn-gradient-dark btn-sm">EDIT</a>
+                                
+
+                                <a href="/deleteAppointment/{{ x.id }}" class="btn btn-danger btn-sm">DELETE</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

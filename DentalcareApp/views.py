@@ -1,6 +1,7 @@
+from datetime import timezone
 from urllib import request
 
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 
 from .forms import ImageUploadForm
@@ -38,16 +39,16 @@ def appointment(request):
     if request.method == 'POST':
         myappointment=Appointment(
 
-            name = request.POST['name'],
-            email = request.POST['email'],
-            phone = request.POST['phone'],
-            date = request.POST['date'],
-            time = request.POST['time'],
-            doctor = request.POST['doctor'],
-            message = request.POST['message']
+            name = request.POST.get('name'),
+            email = request.POST.get('email'),
+            phone = request.POST.get('phone'),
+            date = request.POST.get('date'),
+            time = request.POST.get('time'),
+            doctor = request.POST.get('doctor'),
+            message = request.POST.get('message'),
         )
         myappointment.save()
-        return render(request, 'contact.html', {'success_message': 'Your message has been sent.'})
+        return render(request, 'appointment.html', {'success_message': 'Your message has been sent.'})
     else:
 
 
@@ -76,4 +77,48 @@ def imagedelete(request, id):
     image = ImageModel.objects.get(id=id)
     image.delete()
     return redirect('/showimage')
+
+def dashboard(request):
+    appointment_count = Appointment.objects.count()
+    contact_count = Contact.objects.count()
+    contacts = Contact.objects.order_by('-contact_time')[:5]
+
+
+    appointments = Appointment.objects.order_by('-appointment_time')[:5]
+
+
+
+    context = {
+        'appointment_count': appointment_count,
+        'appointments': appointments,
+        'contact_count': contact_count,
+        'contacts': contacts,
+    }
+    return render(request,'index.html', context)
+
+
+def appointments_dashboard(request):
+    appointments = Appointment.objects.filter(confirmed=False).order_by('-appointment_time')
+    confirmed_appointments = Appointment.objects.filter(confirmed=True).order_by('-appointment_time')
+    context = {
+        'appointments': appointments,
+        'confirmed_appointments': confirmed_appointments,
+
+    }
+    return render(request, 'appointments-dash.html',context)
+
+
+def confirm_appointment(request,id):
+    appointment = get_object_or_404(Appointment, id=id)
+    appointment.confirmed = True  # Mark as confirmed
+    appointment.save()
+    return redirect('appointments_dashboard')
+
+def deleteAppointment(request, id):
+    Appointment.objects.get(id=id).delete()
+    return redirect('appointments_dashboard')
+
+def edit(request,id):
+    editappointment = Appointment.objects.get(id=id)
+    return render(request,'edit.html',{'appointment':editappointment})
 

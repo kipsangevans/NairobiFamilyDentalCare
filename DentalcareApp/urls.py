@@ -2,8 +2,6 @@ from django.contrib import admin
 from django.urls import path
 from DentalcareApp import views
 
-
-
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
@@ -18,4 +16,9 @@ urlpatterns = [
     path('uploadimage/', views.upload_image, name='upload'),
     path('our team/', views.our_team, name='image'),
     path('imagedelete/<int:id>', views.imagedelete),
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('dashboard_appointments/', views.appointments_dashboard, name='appointments_dashboard'),
+    path('confirm/<int:id>/', views.confirm_appointment, name='confirm_appointment'),
+    path('deleteAppointment/<int:id>', views.deleteAppointment, name="deleteAppointment"),
+
 ]

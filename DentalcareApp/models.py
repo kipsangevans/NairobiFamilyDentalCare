@@ -10,6 +10,8 @@ class Appointment(models.Model):
     time = models.TimeField()
     doctor = models.CharField(max_length=100)
     message = models.TextField()
+    appointment_time = models.DateTimeField(auto_now_add=True)
+    confirmed = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
@@ -20,6 +22,7 @@ class Contact(models.Model):
     phone = models.CharField(max_length=100)
     subject = models.CharField(max_length=100)
     message = models.TextField()
+    contact_time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
