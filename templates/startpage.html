@@ -15,7 +15,7 @@
 
     <!-- Title -->
 
-    <title>Mediplus - Free Medical and Doctor Directory HTML Template.</title>
+    <title>Nairobi Family Dental Care</title>
 
     <!-- Favicon -->
     <link rel="icon" href="{% static 'img/favicon-naiorbi1.png' %}">
@@ -88,8 +88,16 @@
                 <div class="col-lg-6 col-md-7 col-12">
                     <!-- Top Contact -->
                     <ul class="top-contact">
-                        <li><i class="fa fa-phone"></i>+(254) 1234 56789</li>
-                        <li><i class="fa fa-envelope"></i><a href="mailto:info@nairobidentalcare.com">info@nairobidentalcare.com</a>
+                        <li><i class="fa fa-dashboard"></i> <a href="{% url 'admin_login' %}">Admin Dashboard</a></li>
+                        <li>
+                            <i class="fa fa-user-circle"></i>
+                            {% if user.is_authenticated %}
+                                <a href="{% url 'profile_detail' %}">Profile</a>
+                            {% else %}
+                                <a href="{% url 'login' %}">Login</a>
+                            {% endif %}
+                        </li>
+
                         </li>
                     </ul>
                     <!-- End Top Contact -->
@@ -121,7 +129,7 @@
                                     <li class="active"><a href="{% url 'index' %}">Home <i
                                             class="icofont-rounded-down"></i></a>
                                         <ul class="dropdown">
-                                            <li><a href="{% url 'index' %}">Home Page 1</a></li>
+                                            <li><a href="{% url 'dashboard' %}">Admin Dashboard</a></li>
 
                                         </ul>
                                     </li>
@@ -214,7 +222,7 @@
                                     <li><a href="#testimonials"><i class="fa fa-caret-right" aria-hidden="true"></i>Testimonials</a>
                                     </li>
 
-                                    <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i>Login As
+                                    <li><a href="{% url 'dashboard' %}"><i class="fa fa-caret-right" aria-hidden="true"></i>Login As
                                         Admin</a></li>
                                 </ul>
                             </div>

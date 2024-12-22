@@ -1,0 +1,152 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block body %}
+      {% load static %}
+    <head>
+    <!-- Meta Tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="Site keywords here">
+    <meta name="description" content="">
+    <meta name='copyright' content=''>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+    <!-- Title -->
+
+    <title></title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'img/favicon-naiorbi1.png' %}">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
+          rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <!-- Nice Select CSS -->
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <!-- icofont CSS -->
+    <link rel="stylesheet" href="{% static 'css/icofont.css' %}">
+    <!-- Slicknav -->
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="{% static 'css/owl-carousel.css' %}">
+    <!-- Datepicker CSS -->
+    <link rel="stylesheet" href="{% static 'css/datepicker.css' %}">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+    <!-- Medipro CSS -->
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+
+
+</head>
+
+
+    <!-- Success Message Box -->
+    {% if success_message %}
+        <div class="alert alert-success text-center" role="alert" id="success-message">
+            {{ success_message }}
+        </div>
+    {% endif %}
+
+
+    <!-- Start Appointment -->
+    <section class="appointment">
+        <div class="container">
+            <div class="row">
+                 <div class="button">
+                     <a href="{% url 'appointments_dashboard' %}">        <button class="btn">Back</button></a>
+                                    </div>
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <h2> Update Appointment</h2>
+                        <img src="{% static 'img/section-img.png' %}" alt="#">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-12 col-12">
+                     <form class="form" method="POST" action="/update/{{appointment.id}}/">
+              {% csrf_token %} 
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                    <input name="name" type="text" value="{{ appointment.name }}" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                    <input name="email" type="email" value="{{ appointment.email }}" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                    <input name="phone" type="text" value="{{ appointment.phone }}" placeholder="Phone">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+
+                                    <select id="doctor" value="{{ appointment.doctor }}" name="doctor" class="form-control wide">
+                                        <option value="" disabled selected>Select a Doctor</option>
+                                        <option value="Dr. Akther Hossain">Dr. Akther Hossain</option>
+                                        <option value="Dr. Dery Alex">Dr. Dery Alex</option>
+                                        <option value="Dr. Jovis Karon">Dr. Jovis Karon</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                    <input type="date" name="date" value="{{ appointment.date }}"placeholder="Date" id="datepicker">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-12">
+                                <div class="form-group">
+                                    <!-- Time Input -->
+                                    <input type="time" name="time" value="{{ appointment.time }}" placeholder="Time">
+                                </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12 col-12">
+                                <div class="form-group">
+                                    <textarea name="message" value="{{ appointment.message }}" placeholder="Write Your Message Here....."></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-5 col-md-4 col-12">
+                                <div class="form-group">
+                                    <div class="button">
+                                        <button type="submit" class="btn">Update An Appointment</button>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                          
+                        </div>
+                    </form>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="appointment-image">
+                        <img src="{% static 'img/contact-img.png' %}" alt="#">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Appointment -->
+
+
+{% endblock %}

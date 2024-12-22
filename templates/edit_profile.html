@@ -1,0 +1,66 @@
+{% extends 'startpage.html' %}
+{% load static %}
+{% block body %}
+    
+    <div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3>Edit Your Profile</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" value="{{ current_user }}" class="form-control" id="username" name="username" placeholder="Enter your username" required>
+                            <div class="invalid-feedback">
+                                Please enter your username.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" value="{{ profile.phone_number }}" class="form-control" id="phone" name="phone" placeholder="Enter your phone number" required>
+                            <div class="invalid-feedback">
+                                Please enter a valid phone number.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" value="{{ profile.address }}" class="form-control" id="address" name="address" placeholder="Enter your address" required>
+                            <div class="invalid-feedback">
+                                Please enter your address.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="dob" class="form-label">Date of Birth</label>
+                            <input type="date" {{ profile.date_of_birth }}class="form-control" id="dob" name="dob" required>
+                            <div class="invalid-feedback">
+                                Please select your date of birth.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="medical-history" class="form-label">Medical History</label>
+                            <textarea class="form-control" value="{{ profile.medical_history }}" id="medical-history" name="medical_history" rows="3" placeholder="Enter your medical history" required></textarea>
+                            <div class="invalid-feedback">
+                                Please provide your medical history.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="xray" class="form-label">Upload X-Ray or Any related image(Optional)</label>
+                            <input type="file" value="{{ profile.xray_image }}" class="form-control" id="xray" name="xray_image">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success btn-lg">Save Changes</button>
+                            <a href="{% url 'profile_detail' %}" class="btn btn-secondary btn-lg">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+{% endblock %}

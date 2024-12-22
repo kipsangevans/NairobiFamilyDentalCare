@@ -1,0 +1,39 @@
+{% extends 'startpage.html' %}
+{% load static %}
+{% block body %}
+    <div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+            <h1 class="text-center">{{ current_user }}'s Profile Records</h1>
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <p><strong>Phone:</strong> {{ profile.phone_number }}</p>
+                    <p><strong>Address:</strong> {{ profile.address }}</p>
+                    <p><strong>Date of Birth:</strong> {{ profile.date_of_birth }}</p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Medical History:</strong> {{ profile.medical_history }}</p>
+                    <p><strong>Dental Records:</strong> {{ profile.dental_records }}</p>
+                </div>
+            </div>
+            {% if profile.xray_image %}
+                <div class="text-center">
+                    <p><strong>X-Ray Image:</strong></p>
+                    <img src="{{ profile.xray_image.url }}" alt="X-Ray" class="img-thumbnail" style="max-width: 300px;">
+                </div>
+            {% endif %}
+        </div>
+        <div class="card-footer text-center">
+            <a href="{% url 'edit_profile' %}" class="btn btn-primary btn-lg me-2">Edit Profile</a>
+            <a href="{% url 'index' %}" class="btn btn-secondary btn-lg">Back</a>
+            <a href="{% url 'logout' %}" class="btn-outline-danger btn-lg">Logout</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+

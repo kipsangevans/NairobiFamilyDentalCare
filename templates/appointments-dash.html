@@ -26,13 +26,13 @@
                             <td>{{ x.name }}</td>
                             <td>{{ x.phone }}</td>
                             <td>
-                                <label class="badge badge-gradient-success">NEW</label>
+                                <label class="badge badge-gradient-info">NEW</label>
                             </td>
                             <td>{{ x.appointment_time|date:"Y-m-d H:i" }}</td>
                             <td>{{ x.doctor }}</td>
                             <td>{{ x.message }}</td>
                             <td>
-                                <a href="" class="btn btn-gradient-dark btn-sm">EDIT</a>
+                                <a href="/edit/{{ x.id }}" class="btn btn-gradient-dark btn-sm">EDIT</a>
                                 <a href="" class="btn btn-gradient-success btn-sm">PAY</a>
                                 <a href="/confirm/{{ x.id }}" class="btn btn-gradient-success btn-sm">Confirm</a>
 
@@ -71,13 +71,13 @@
                             <td>{{ x.name }}</td>
                             <td>{{ x.phone }}</td>
                             <td>
-                                <label class="badge badge-gradient-success">NEW</label>
+                                <label class="badge badge-gradient-info">CONFIRMED</label>
                             </td>
                             <td>{{ x.appointment_time|date:"Y-m-d H:i" }}</td>
                             <td>{{ x.doctor }}</td>
                             <td>{{ x.message }}</td>
                             <td>
-                                <a href="" class="btn btn-gradient-dark btn-sm">EDIT</a>
+                                <a href="/edit/{{ x.id }}" class="btn btn-gradient-dark btn-sm">EDIT</a>
                                 
 
                                 <a href="/deleteAppointment/{{ x.id }}" class="btn btn-danger btn-sm">DELETE</a>

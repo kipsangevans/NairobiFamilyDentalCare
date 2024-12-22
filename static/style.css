@@ -4202,6 +4202,27 @@ body{
     color: #777;
 }
 
+#terms-checkbox {
+  appearance: none; /* Remove the default styling */
+  -webkit-appearance: none; /* Remove Webkit styling */
+  width: 20px;
+  height: 20px;
+  border: 2px solid blue; /* Set custom border color */
+  border-radius: 4px; /* Optional: Add rounded corners */
+  outline: none; /* Remove focus outline */
+  cursor: pointer;
+}
+
+#terms-checkbox:checked {
+  background-color: blue; /* Change background color when checked */
+  border-color: blue; /* Ensure border remains blue */
+}
+
+#terms-checkbox:focus {
+  box-shadow: 0 0 5px rgba(0, 0, 255, 0.5); /* Optional focus effect */
+}
+
+
 /*=========================
 	End Footer CSS
 ===========================*/
